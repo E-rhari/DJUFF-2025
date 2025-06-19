@@ -47,12 +47,10 @@ up={
 ]
 }
 
-<<<<<<< HEAD
 [layer_names]
 
 2d_physics/layer_8="ground"
-=======
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
->>>>>>> af4834f71f4756522561632f3fcc3f11cb3c3b26

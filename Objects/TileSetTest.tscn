@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=3 uid="uid://do37bx3iqt1l4"]
+
+[ext_resource type="Texture2D" uid="uid://bbfp87sdus4o" path="res://Imgs/TileSets/tileset-test.png" id="1_0frmp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0frmp"]
+size = Vector2(16, 16)
+
+[node name="TileSetTest" type="Node2D"]
+
+[node name="DarkTile" type="Sprite2D" parent="."]
+texture = ExtResource("1_0frmp")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="DarkTile"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DarkTile/StaticBody2D"]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_0frmp")
+
+[node name="BlueTile" type="Sprite2D" parent="."]
+position = Vector2(32, 0)
+texture = ExtResource("1_0frmp")
+centered = false
+region_enabled = true
+region_rect = Rect2(16, 0, 16, 16)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="BlueTile"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlueTile/StaticBody2D"]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_0frmp")
+
+[node name="Spike" type="Sprite2D" parent="."]
+position = Vector2(0, 32)
+texture = ExtResource("1_0frmp")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 16, 16, 16)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Spike"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike/StaticBody2D"]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_0frmp")
+
+[node name="HalfTile" type="Sprite2D" parent="."]
+position = Vector2(32, 32)
+texture = ExtResource("1_0frmp")
+centered = false
+region_enabled = true
+region_rect = Rect2(16, 16, 16, 16)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="HalfTile"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HalfTile/StaticBody2D"]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_0frmp")

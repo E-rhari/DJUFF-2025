@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://15b3sv5x31t0"]
+[gd_scene load_steps=4 format=3 uid="uid://bfkragnts5kr1"]
 
 [ext_resource type="Script" uid="uid://cfs10hwwesuof" path="res://Scripts/player.gd" id="1_3y5cq"]
 [ext_resource type="Texture2D" uid="uid://cxf7j6bor7pud" path="res://Imgs/Sprite/protagmj.png" id="2_3y5cq"]
@@ -14,7 +14,8 @@ script = ExtResource("1_3y5cq")
 shape = SubResource("CapsuleShape2D_3y5cq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1, -8.88178e-16)
+position = Vector2(0, -8.88178e-16)
 texture = ExtResource("2_3y5cq")
+flip_h = true
 region_enabled = true
-region_rect = Rect2(25, 6, 18, 35)
+region_rect = Rect2(0, 0, 18, 35)

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://byagr62suy3q3"
-path="res://.godot/imported/CaminhadaPassosPanoSimples1ComAlteração.wav-3bc976ccfaec1471277804ed9cd2279e.sample"
+path="res://.godot/imported/CaminhadaPassosPanoSimples1ComAlteração.wav-726deff551d21da711c148275aba04a3.sample"
 
 [deps]
 
-source_file="res://Audio/SoundEffects/PassosPano/CaminhadaPassosPanoSimples1ComAlteração.wav"
-dest_files=["res://.godot/imported/CaminhadaPassosPanoSimples1ComAlteração.wav-3bc976ccfaec1471277804ed9cd2279e.sample"]
+source_file="res://Audio/SoundEffects/PASSOS/PassosPano/CaminhadaPassosPanoSimples1ComAlteração.wav"
+dest_files=["res://.godot/imported/CaminhadaPassosPanoSimples1ComAlteração.wav-726deff551d21da711c148275aba04a3.sample"]
 
 [params]
 

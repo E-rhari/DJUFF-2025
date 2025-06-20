@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://c074axg2uqkxk"
-path="res://.godot/imported/CaminhadaMadeiraDedosComAlteraçãoEDiferentesSonsEMAISGRAVE.wav-662c589f1204d2dc8b5514a99223250e.sample"
+path="res://.godot/imported/CaminhadaMadeiraDedosComAlteraçãoEDiferentesSonsEMAISGRAVE.wav-54706809dd43de49339eb7209d21b95b.sample"
 
 [deps]
 
-source_file="res://Audio/SoundEffects/PassosMadeiraDedos/CaminhadaMadeiraDedosComAlteraçãoEDiferentesSonsEMAISGRAVE.wav"
-dest_files=["res://.godot/imported/CaminhadaMadeiraDedosComAlteraçãoEDiferentesSonsEMAISGRAVE.wav-662c589f1204d2dc8b5514a99223250e.sample"]
+source_file="res://Audio/SoundEffects/PASSOS/PassosMadeiraDedos/CaminhadaMadeiraDedosComAlteraçãoEDiferentesSonsEMAISGRAVE.wav"
+dest_files=["res://.godot/imported/CaminhadaMadeiraDedosComAlteraçãoEDiferentesSonsEMAISGRAVE.wav-54706809dd43de49339eb7209d21b95b.sample"]
 
 [params]
 

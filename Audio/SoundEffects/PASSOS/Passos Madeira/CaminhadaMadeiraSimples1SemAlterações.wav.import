@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://gh4bhbmm8nqm"
-path="res://.godot/imported/CaminhadaMadeiraSimples1SemAlterações.wav-615899979774b5edaab6527fbffa9970.sample"
+path="res://.godot/imported/CaminhadaMadeiraSimples1SemAlterações.wav-67c1aed6dfcfd1d3d2ab3cd06ec59c34.sample"
 
 [deps]
 
-source_file="res://Audio/SoundEffects/Passos Madeira/CaminhadaMadeiraSimples1SemAlterações.wav"
-dest_files=["res://.godot/imported/CaminhadaMadeiraSimples1SemAlterações.wav-615899979774b5edaab6527fbffa9970.sample"]
+source_file="res://Audio/SoundEffects/PASSOS/Passos Madeira/CaminhadaMadeiraSimples1SemAlterações.wav"
+dest_files=["res://.godot/imported/CaminhadaMadeiraSimples1SemAlterações.wav-67c1aed6dfcfd1d3d2ab3cd06ec59c34.sample"]
 
 [params]
 

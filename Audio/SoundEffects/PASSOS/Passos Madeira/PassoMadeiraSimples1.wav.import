@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://corteg1ix4mu4"
-path="res://.godot/imported/PassoMadeiraSimples1.wav-6abdf98c2b6b34fd4e5481997dac88d8.sample"
+path="res://.godot/imported/PassoMadeiraSimples1.wav-d30c9b2fa3d34442084cd4256a01404d.sample"
 
 [deps]
 
-source_file="res://Audio/SoundEffects/Passos Madeira/PassoMadeiraSimples1.wav"
-dest_files=["res://.godot/imported/PassoMadeiraSimples1.wav-6abdf98c2b6b34fd4e5481997dac88d8.sample"]
+source_file="res://Audio/SoundEffects/PASSOS/Passos Madeira/PassoMadeiraSimples1.wav"
+dest_files=["res://.godot/imported/PassoMadeiraSimples1.wav-d30c9b2fa3d34442084cd4256a01404d.sample"]
 
 [params]
 

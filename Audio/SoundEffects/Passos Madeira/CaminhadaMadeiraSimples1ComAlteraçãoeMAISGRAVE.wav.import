@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cbnt5147w5m11"
+path="res://.godot/imported/CaminhadaMadeiraSimples1ComAlteraçãoeMAISGRAVE.wav-1afa0e4a721fd02d04670453aa90675f.sample"
+
+[deps]
+
+source_file="res://Audio/SoundEffects/Passos Madeira/CaminhadaMadeiraSimples1ComAlteraçãoeMAISGRAVE.wav"
+dest_files=["res://.godot/imported/CaminhadaMadeiraSimples1ComAlteraçãoeMAISGRAVE.wav-1afa0e4a721fd02d04670453aa90675f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

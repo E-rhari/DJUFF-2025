@@ -29,7 +29,6 @@ func on_child_transition(state, new_state_name):
 	
 	var new_state = states.get(new_state_name.to_lower())
 	if !new_state:
-		print("oi")
 		return
 	
 	if current_state:

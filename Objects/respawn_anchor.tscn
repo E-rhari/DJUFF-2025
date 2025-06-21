@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4l7veyy45yxb"]
+
+[ext_resource type="Script" uid="uid://chsy3yh6stg73" path="res://Scripts/respawn_anchor.gd" id="1_148nd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jek5b"]
+
+[node name="RespawnAnchor" type="Area2D"]
+collision_layer = 0
+monitorable = false
+script = ExtResource("1_148nd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jek5b")
+
+[node name="RespawnLocation" type="Marker2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

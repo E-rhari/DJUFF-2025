@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bfkragnts5kr1"]
+[gd_scene load_steps=6 format=3 uid="uid://bp3vqb33v1gyj"]
 
 [ext_resource type="Script" uid="uid://cfs10hwwesuof" path="res://Scripts/player.gd" id="1_3y5cq"]
 [ext_resource type="PackedScene" uid="uid://db6dxnhdqk8on" path="res://Objects/coraggio.tscn" id="2_2i4gt"]

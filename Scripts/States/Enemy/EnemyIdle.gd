@@ -2,15 +2,14 @@ extends State
 class_name EnemyIdle
 
 @export var enemy: CharacterBody2D
-@export var ground_check: Area2D
+@export var ground_check: RayCast2D
+@export var wall_check: RayCast2D
 
-var last_direction := 1
 var wander_time : float
 var player
 
 func randomize_wander():
-	print("randomizou")
-	last_direction *= -1
+	enemy.turn()
 	wander_time = randf_range(2, 5)
 
 func enter():
@@ -24,15 +23,14 @@ func update(delta: float):
 		randomize_wander()
 
 func physics_update(delta: float):
-	if enemy:
-		enemy.velocity.x = last_direction * enemy.speed
+	enemy.velocity.x = enemy.is_moving_right * enemy.speed
 	
 	var direction = player.global_position - enemy.global_position
-	if direction.length() < enemy.range and ground_check.has_overlapping_bodies():
-		print("ir pro follow")
+	if (direction.length() < enemy.range):
 		Transitioned.emit(self, "follow")
-
-
-func _on_area_2d_body_exited(body: Node2D) -> void:
-	randomize_wander()
-	pass # Replace with function body.
+	
+	if (!ground_check.is_colliding() and enemy.is_on_floor()):
+		randomize_wander()
+	
+	if (wall_check.is_colliding()):
+		randomize_wander()

@@ -55,6 +55,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("up") and is_on_floor():
 		jump()
+		$SomDoPulo.play()
 	if Input.is_action_just_released("up"):
 		cut_jump()
 	

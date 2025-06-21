@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://db6dxnhdqk8on"]
+
+[ext_resource type="PackedScene" uid="uid://xu5to5c11if0" path="res://Objects/enemy.tscn" id="1_6d2ds"]
+[ext_resource type="Script" uid="uid://b6g1cgvovoj2k" path="res://Scripts/States/Enemy/EnemyAttack.gd" id="5_hv4qy"]
+[ext_resource type="Script" uid="uid://7kcl7gogxvri" path="res://Scripts/States/Enemy/EnemyCharge.gd" id="6_rfijp"]
+
+[sub_resource type="Gradient" id="Gradient_rfijp"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ciq6r"]
+gradient = SubResource("Gradient_rfijp")
+width = 800
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hv4qy"]
+radius = 5.0
+height = 40.0
+
+[node name="Coraggio" instance=ExtResource("1_6d2ds")]
+metadata/Index = 3
+
+[node name="Sprite2D" parent="." index="1"]
+self_modulate = Color(1, 0, 0, 1)
+
+[node name="Charging Bar" type="Sprite2D" parent="Sprite2D" index="1"]
+position = Vector2(0, -120)
+scale = Vector2(0.2, 11.765)
+texture = SubResource("GradientTexture1D_ciq6r")
+region_rect = Rect2(26.29, 58.545, 277.54, 46.11)
+
+[node name="Charge" type="Node" parent="StateMachine" index="2" node_paths=PackedStringArray("warning")]
+script = ExtResource("6_rfijp")
+warning = NodePath("../../Sprite2D/Charging Bar")
+metadata/_custom_type_script = "uid://7kcl7gogxvri"
+
+[node name="Attack" type="Node" parent="StateMachine" index="3" node_paths=PackedStringArray("hitbox", "warning")]
+script = ExtResource("5_hv4qy")
+hitbox = NodePath("../../Melee")
+warning = NodePath("../../Sprite2D/Charging Bar")
+metadata/_custom_type_script = "uid://b6g1cgvovoj2k"
+
+[node name="Melee" type="Area2D" parent="." index="5"]
+position = Vector2(17, 0)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Melee" index="0"]
+position = Vector2(1.90735e-06, -20)
+shape = SubResource("CapsuleShape2D_hv4qy")

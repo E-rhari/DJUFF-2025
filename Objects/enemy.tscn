@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://xu5to5c11if0"]
+
+[ext_resource type="Script" uid="uid://ddvqrxol7y7kr" path="res://Scripts/enemy.gd" id="1_4jekx"]
+[ext_resource type="Script" uid="uid://b7uq3qunvhsbf" path="res://Scripts/States/state_machine.gd" id="2_4jekx"]
+[ext_resource type="Script" uid="uid://cmg1fumag5x7j" path="res://Scripts/States/Enemy/EnemyIdle.gd" id="3_s685e"]
+[ext_resource type="Script" uid="uid://u05die0eu548" path="res://Scripts/States/Enemy/EnemyFollow.gd" id="4_n6qjc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yfe2k"]
+size = Vector2(26, 48)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_yww8s"]
+noise_type = 0
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_756aq"]
+width = 162
+height = 207
+noise = SubResource("FastNoiseLite_yww8s")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cqgh6"]
+
+[node name="Enemy" type="CharacterBody2D" groups=["Enemies"]]
+collision_layer = 2
+collision_mask = 129
+script = ExtResource("1_4jekx")
+speed = 100
+range = 100
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+shape = SubResource("RectangleShape2D_yfe2k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.117371, -0.117371)
+scale = Vector2(0.159551, 0.236576)
+texture = SubResource("NoiseTexture2D_756aq")
+
+[node name="Direction" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(82.2143, 0.496124)
+scale = Vector2(-0.178581, -0.017056)
+texture = SubResource("NoiseTexture2D_cqgh6")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_4jekx")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy", "ground_check", "wall_check")]
+script = ExtResource("3_s685e")
+enemy = NodePath("../..")
+ground_check = NodePath("../../GroundCheck")
+wall_check = NodePath("../../WallCheck")
+metadata/_custom_type_script = "uid://cmg1fumag5x7j"
+
+[node name="Follow" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("4_n6qjc")
+enemy = NodePath("../..")
+metadata/_custom_type_script = "uid://u05die0eu548"
+
+[node name="GroundCheck" type="RayCast2D" parent="."]
+position = Vector2(16, 19)
+target_position = Vector2(0, 10)
+collision_mask = 128
+
+[node name="WallCheck" type="RayCast2D" parent="."]
+position = Vector2(0, 22)
+rotation = -1.5708
+target_position = Vector2(0, 21)
+collision_mask = 128

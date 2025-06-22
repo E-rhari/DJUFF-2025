@@ -36,11 +36,11 @@ func horizontal_movement():
 	if input_direction:
 		velocity.x = input_direction*speed
 		directional_flip(input_direction)
-		if $Timer.time_left <= 0 and is_on_floor():
+		if $SomDeAndarTimer.time_left <= 0 and is_on_floor():
 			$SomGeral.stream = audios[0]
 			$SomGeral.pitch_scale = randf_range(0.8,1.2)
 			$SomGeral.play()
-			$Timer.start(0.5)
+			$SomDeAndarTimer.start(0.5)
 	else:
 		velocity.x = input_direction*0
 

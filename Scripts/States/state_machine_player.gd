@@ -38,10 +38,10 @@ func on_child_transition(state, new_state_name):
 	
 	current_state = new_state
 
-func _on_hitbox_body_entered(body: Node2D) -> void:
-	owner.die()
-	on_child_transition(current_state, str(body.get_meta("Index")))
-
-func _on_hitbox_area_entered(area: Area2D) -> void:
+func _on_hurtbox_area_entered(area: Area2D) -> void:
 	owner.die()
 	on_child_transition(current_state, str(area.owner.get_meta("Index")))
+
+func _on_hurtbox_body_entered(body: Node2D) -> void:
+	owner.die()
+	on_child_transition(current_state, str(body.get_meta("Index")))

@@ -48,11 +48,11 @@ flip_h = true
 region_enabled = true
 region_rect = Rect2(0, 0, 18, 35)
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("CapsuleShape2D_2i4gt")
 
 [node name="SomGeral" type="AudioStreamPlayer" parent="."]
@@ -78,7 +78,5 @@ script = ExtResource("5_x20fu")
 metadata/_custom_type_script = "uid://bhdvga63xkck8"
 
 [connection signal="body_entered" from="AuraAttack" to="StateMachine/3" method="_on_aura_attack_body_entered"]
-[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
-[connection signal="area_entered" from="Hitbox" to="StateMachine" method="_on_hitbox_area_entered"]
-[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
-[connection signal="body_entered" from="Hitbox" to="StateMachine" method="_on_hitbox_body_entered"]
+[connection signal="area_entered" from="Hurtbox" to="StateMachine" method="_on_hurtbox_area_entered"]
+[connection signal="body_entered" from="Hurtbox" to="StateMachine" method="_on_hurtbox_body_entered"]

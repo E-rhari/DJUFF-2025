@@ -1,12 +1,9 @@
-[gd_scene load_steps=12 format=4 uid="uid://cw2d5j0gvjkdn"]
+[gd_scene load_steps=9 format=4 uid="uid://cw2d5j0gvjkdn"]
 
 [ext_resource type="PackedScene" uid="uid://bfkragnts5kr1" path="res://Objects/player.tscn" id="1_f6udf"]
 [ext_resource type="Texture2D" uid="uid://ignvrc7o8coc" path="res://Imgs/Sprite/blocosazuis.png" id="2_75buv"]
-[ext_resource type="AudioStream" uid="uid://bgoigimyalrxy" path="res://Audio/SoundEffects/PASSOS/PassosToalha/PassosToalha.wav" id="2_ow1sv"]
-[ext_resource type="AudioStream" uid="uid://cvkvhjoscq2nl" path="res://Audio/SoundEffects/PULOS/PULOSToalha/PuloPadrão.wav" id="3_75buv"]
 [ext_resource type="Script" uid="uid://b1ufvcf27u5vw" path="res://Scripts/camera_room_follow.gd" id="3_r34rm"]
 [ext_resource type="PackedScene" uid="uid://db6dxnhdqk8on" path="res://Objects/coraggio.tscn" id="4_2wwxx"]
-[ext_resource type="AudioStream" uid="uid://gsvkfo6saby8" path="res://Audio/SoundEffects/Morte/Estalo.wav" id="4_3pt4j"]
 [ext_resource type="PackedScene" uid="uid://c4l7veyy45yxb" path="res://Objects/respawn_anchor.tscn" id="5_3amdw"]
 [ext_resource type="PackedScene" uid="uid://cpuhmaponjg54" path="res://Objects/destructible_box.tscn" id="8_75buv"]
 
@@ -113,7 +110,6 @@ sources/0 = SubResource("TileSetAtlasSource_3pt4j")
 
 [node name="Player" parent="." instance=ExtResource("1_f6udf")]
 position = Vector2(561, 548)
-audios = Array[AudioStreamWAV]([ExtResource("2_ow1sv"), ExtResource("3_75buv"), ExtResource("4_3pt4j")])
 
 [node name="TileMapCerto" type="TileMapLayer" parent="."]
 position = Vector2(0, -2)
@@ -158,7 +154,7 @@ position = Vector2(562, 554)
 position = Vector2(839, 562)
 
 [node name="RespawnAnchor3" parent="Checkpoints" instance=ExtResource("5_3amdw")]
-position = Vector2(1309, 376)
+position = Vector2(1323, 376)
 
 [node name="RespawnAnchor4" parent="Checkpoints" instance=ExtResource("5_3amdw")]
 position = Vector2(1840, 561)

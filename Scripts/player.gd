@@ -21,7 +21,6 @@ func _ready() -> void:
 		enemies_spawn_positions.append(enemies[i].global_position)
 		enemies_types.append(enemies[i].get_meta("Index"))
 
-
 func directional_flip(direction):
 	if direction < 0:
 		transform.x.x = -1;

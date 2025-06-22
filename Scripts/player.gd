@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var audios: Array[AudioStreamWAV]
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var local_gravity = 1
 
 #Respawn
 var enemies: Array[Node]
@@ -28,7 +29,7 @@ func directional_flip(direction):
 
 
 func jump():
-	velocity.y = -jump_speed
+	velocity.y = -jump_speed * local_gravity
 
 
 func horizontal_movement():
@@ -46,7 +47,7 @@ func horizontal_movement():
 
 
 func apply_gravity(delta: float):
-	velocity.y += gravity * delta
+	velocity.y += gravity * delta * local_gravity
 
 
 func cut_jump():
@@ -69,15 +70,11 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-
-func _on_hitbox_body_entered(body: Node2D) -> void:
-	die(body.get_meta("Index"))
-
-func _on_hitbox_area_entered(area: Area2D) -> void:
-	die(area.owner.get_meta("Index"))
-
-func die(powerup: int) -> void:
+func die() -> void:
 	position = spawn_location
+	$SomGeral.stream = audios[2]
+	$SomGeral.pitch_scale = randf_range(0.8, 1.0)
+	$SomGeral.play()
 	for i in enemies.size():
 		if enemies[i]:
 			enemies[i].queue_free()
@@ -85,7 +82,3 @@ func die(powerup: int) -> void:
 		get_tree().root.add_child(instance)
 		instance.position = enemies_spawn_positions[i]
 		enemies[i] = instance
-		
-	#TODO: programar powerups
-	if (powerup == CORAGGIO):
-		pass

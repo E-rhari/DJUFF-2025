@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ignvrc7o8coc"
-path="res://.godot/imported/blocosazuis - Copia.png-0eb50e794186504d4ddc918bc5eea506.ctex"
+uid="uid://nvm2ywwakv14"
+path="res://.godot/imported/box.png-969eab1dc3e39b9271a403808133b1ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imgs/Sprite/blocosazuis - Copia.png"
-dest_files=["res://.godot/imported/blocosazuis - Copia.png-0eb50e794186504d4ddc918bc5eea506.ctex"]
+source_file="res://Imgs/Sprite/box.png"
+dest_files=["res://.godot/imported/box.png-969eab1dc3e39b9271a403808133b1ed.ctex"]
 
 [params]
 

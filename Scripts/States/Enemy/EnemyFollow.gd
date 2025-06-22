@@ -3,6 +3,7 @@ class_name EnemyFollow
 
 @export var enemy : CharacterBody2D
 @export var nextState : String
+@onready var animation_player: AnimationPlayer = $"../../AnimatedSprite2D/AnimationPlayer"
 
 var player: CharacterBody2D
 
@@ -10,6 +11,7 @@ func enter():
 	player = get_tree().get_first_node_in_group("Player")
 
 func physics_update(_delta: float):
+	animation_player.play("idle")
 	var direction = player.global_position - enemy.global_position
 	if direction.normalized().x > 0 and enemy.is_moving_right < 0:
 		enemy.turn()

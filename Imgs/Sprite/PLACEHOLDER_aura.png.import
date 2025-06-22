@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ignvrc7o8coc"
-path="res://.godot/imported/blocosazuis.png-5c918ac0b39ca41c1cff4f2674f0ae7a.ctex"
+uid="uid://chmjwbhtmrh07"
+path="res://.godot/imported/PLACEHOLDER_aura.png-45bff6e1278f5ffec04ef0359842af5c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imgs/Sprite/blocosazuis.png"
-dest_files=["res://.godot/imported/blocosazuis.png-5c918ac0b39ca41c1cff4f2674f0ae7a.ctex"]
+source_file="res://Imgs/Sprite/PLACEHOLDER_aura.png"
+dest_files=["res://.godot/imported/PLACEHOLDER_aura.png-45bff6e1278f5ffec04ef0359842af5c.ctex"]
 
 [params]
 

@@ -3,6 +3,8 @@ extends CharacterBody2D
 @export var speed = 150
 @export var jump_speed = 400
 @export var audios: Array[AudioStreamWAV]
+@onready var animation_player: AnimationPlayer = $AnimatedSprite2D/AnimationPlayer
+
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var local_gravity = 1
@@ -30,20 +32,29 @@ func directional_flip(direction):
 
 func jump():
 	velocity.y = -jump_speed * local_gravity
+	animation_player.play("jump")
 
 
 func horizontal_movement():
 	var input_direction = Input.get_axis("left", "right")
-	if input_direction:
+	if input_direction != 0:
 		velocity.x = input_direction*speed
 		directional_flip(input_direction)
+
 		if $SomDeAndarTimer.time_left <= 0 and is_on_floor():
 			$SomGeral.stream = audios[0]
 			$SomGeral.pitch_scale = randf_range(0.8,1.2)
 			$SomGeral.play()
 			$SomDeAndarTimer.start(0.5)
+
+		if is_on_floor():
+			if animation_player.is_playing() and animation_player.current_animation != "walk":
+				animation_player.play("walk")
+		
 	else:
 		velocity.x = input_direction*0
+		if is_on_floor():
+			animation_player.play("idle")
 
 
 func apply_gravity(delta: float):
@@ -53,6 +64,7 @@ func apply_gravity(delta: float):
 func cut_jump():
 	if velocity.y < float(-speed)/4:
 		velocity.y = float(-speed)/4
+	animation_player.play("idle")
 
 
 func _physics_process(delta: float) -> void:

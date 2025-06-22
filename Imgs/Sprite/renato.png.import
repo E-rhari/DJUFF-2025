@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://eidddb7kjjv4"
-path="res://.godot/imported/protagmj.png-f609d4ddc41315eb224659c48e4b97f3.ctex"
+uid="uid://7jv6jqwt0k8q"
+path="res://.godot/imported/renato.png-82de05e313eb52459be82fffadc34618.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imgs/Sprite/protagmj.png"
-dest_files=["res://.godot/imported/protagmj.png-f609d4ddc41315eb224659c48e4b97f3.ctex"]
+source_file="res://Imgs/Sprite/renato.png"
+dest_files=["res://.godot/imported/renato.png-82de05e313eb52459be82fffadc34618.ctex"]
 
 [params]
 

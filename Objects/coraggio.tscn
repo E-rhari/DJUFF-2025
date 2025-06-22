@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://db6dxnhdqk8on"]
+[gd_scene load_steps=19 format=3 uid="uid://db6dxnhdqk8on"]
 
 [ext_resource type="PackedScene" uid="uid://xu5to5c11if0" path="res://Objects/enemy.tscn" id="1_6d2ds"]
 [ext_resource type="Texture2D" uid="uid://cipxk2nqcfm10" path="res://Imgs/Sprite/coraggio - Copia.png" id="2_ciq6r"]
@@ -36,6 +36,14 @@ region = Rect2(430, 0, 86, 73)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_v6nch"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjvd5")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cjvd5")
@@ -111,6 +119,22 @@ tracks/3/keys = {
 "values": [0.0]
 }
 
+[sub_resource type="Animation" id="Animation_rfijp"]
+resource_name = "idle"
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_ciq6r"]
 resource_name = "punch"
 step = 0.01
@@ -133,10 +157,10 @@ tracks/1/path = NodePath("../Melee/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.4, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [true, false]
+"values": [true, false, true]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -145,7 +169,7 @@ tracks/2/path = NodePath("../Melee/CollisionShape2D:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.398654, 0.51),
+"times": PackedFloat32Array(0.398654, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [Vector2(4, -20), Vector2(11, 2)]
@@ -157,15 +181,30 @@ tracks/3/path = NodePath("../Melee/CollisionShape2D:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.398654, 0.51),
+"times": PackedFloat32Array(0.398654, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0.0, 1.89756]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../StateMachine/Punch")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"anim_ended"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hv4qy"]
 _data = {
 &"RESET": SubResource("Animation_hv4qy"),
+&"idle": SubResource("Animation_rfijp"),
 &"punch": SubResource("Animation_ciq6r")
 }
 

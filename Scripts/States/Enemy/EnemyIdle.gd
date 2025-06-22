@@ -4,6 +4,7 @@ class_name EnemyIdle
 @export var enemy: CharacterBody2D
 @export var ground_check: RayCast2D
 @export var wall_check: RayCast2D
+@onready var animation_player: AnimationPlayer = $"../../AnimatedSprite2D/AnimationPlayer"
 
 var wander_time : float
 var player
@@ -17,6 +18,7 @@ func enter():
 	randomize_wander()
 
 func update(delta: float):
+	animation_player.play("idle")
 	if wander_time > 0:
 		wander_time -= delta
 	else:

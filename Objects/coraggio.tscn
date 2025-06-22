@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://db6dxnhdqk8on"]
+[gd_scene load_steps=18 format=3 uid="uid://db6dxnhdqk8on"]
 
 [ext_resource type="PackedScene" uid="uid://xu5to5c11if0" path="res://Objects/enemy.tscn" id="1_6d2ds"]
 [ext_resource type="Texture2D" uid="uid://cipxk2nqcfm10" path="res://Imgs/Sprite/coraggio - Copia.png" id="2_ciq6r"]
+[ext_resource type="AudioStream" uid="uid://d3bhmevwy1kae" path="res://Audio/SoundEffects/Enemy/CoraggioPunchê/puncho.wav" id="4_ciq6r"]
 [ext_resource type="Script" uid="uid://7kcl7gogxvri" path="res://Scripts/States/Enemy/EnemyPunch.gd" id="6_rfijp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_arbgw"]
@@ -196,3 +197,6 @@ collision_mask = 0
 position = Vector2(-2.68661, -30.6669)
 shape = SubResource("CapsuleShape2D_hv4qy")
 disabled = true
+
+[node name="SomDoSoco" type="AudioStreamPlayer2D" parent="." index="7"]
+stream = ExtResource("4_ciq6r")

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bf3ppjfu7pblx"
+path="res://.godot/imported/stickyRenatosKillingSound.wav-2abb5c9b3f54a8ef6370596f6a43708a.sample"
+
+[deps]
+
+source_file="res://Audio/SoundEffects/Enemy/Renato's Killing Sound/stickyRenatosKillingSound.wav"
+dest_files=["res://.godot/imported/stickyRenatosKillingSound.wav-2abb5c9b3f54a8ef6370596f6a43708a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

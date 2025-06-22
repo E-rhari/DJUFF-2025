@@ -9,11 +9,6 @@ func _process(delta: float) -> void:
 	var cameraBoundary =  { "right": position.x+width, "left": position.x, 
 							"up": position.y+height, "down": position.y }
 	var playerPosition = player.position
-	
-	print(width)
-	print("Camera: " + str(position))
-	print("Player: " + str(playerPosition))
-	print("Limit: " + str(cameraBoundary))
 
 	if playerPosition.x > cameraBoundary.right:
 		position.x += width

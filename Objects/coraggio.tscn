@@ -1,47 +1,198 @@
-[gd_scene load_steps=7 format=3 uid="uid://db6dxnhdqk8on"]
+[gd_scene load_steps=17 format=3 uid="uid://db6dxnhdqk8on"]
 
 [ext_resource type="PackedScene" uid="uid://xu5to5c11if0" path="res://Objects/enemy.tscn" id="1_6d2ds"]
-[ext_resource type="Script" uid="uid://b6g1cgvovoj2k" path="res://Scripts/States/Enemy/EnemyAttack.gd" id="5_hv4qy"]
-[ext_resource type="Script" uid="uid://7kcl7gogxvri" path="res://Scripts/States/Enemy/EnemyCharge.gd" id="6_rfijp"]
+[ext_resource type="Texture2D" uid="uid://cipxk2nqcfm10" path="res://Imgs/Sprite/coraggio - Copia.png" id="2_ciq6r"]
+[ext_resource type="Script" uid="uid://7kcl7gogxvri" path="res://Scripts/States/Enemy/EnemyPunch.gd" id="6_rfijp"]
 
-[sub_resource type="Gradient" id="Gradient_rfijp"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_arbgw"]
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_ciq6r"]
-gradient = SubResource("Gradient_rfijp")
-width = 800
+[sub_resource type="CircleShape2D" id="CircleShape2D_ecost"]
+radius = 26.0768
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjvd5"]
+atlas = ExtResource("2_ciq6r")
+region = Rect2(0, 0, 86, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvmcv"]
+atlas = ExtResource("2_ciq6r")
+region = Rect2(86, 0, 86, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yts1e"]
+atlas = ExtResource("2_ciq6r")
+region = Rect2(172, 0, 86, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6clk1"]
+atlas = ExtResource("2_ciq6r")
+region = Rect2(258, 0, 86, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lk66"]
+atlas = ExtResource("2_ciq6r")
+region = Rect2(344, 0, 86, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lih3p"]
+atlas = ExtResource("2_ciq6r")
+region = Rect2(430, 0, 86, 73)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v6nch"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjvd5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvmcv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yts1e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6clk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lk66")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lih3p")
+}],
+"loop": true,
+"name": &"Punch",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_hv4qy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Melee:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Melee/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ciq6r"]
+resource_name = "punch"
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Melee:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4, 0.51),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0.0, 1.81753]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Melee/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hv4qy"]
+_data = {
+&"RESET": SubResource("Animation_hv4qy"),
+&"punch": SubResource("Animation_ciq6r")
+}
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hv4qy"]
 radius = 5.0
 height = 40.0
 
 [node name="Coraggio" instance=ExtResource("1_6d2ds")]
+speed = 50
 metadata/Index = 3
 
-[node name="Sprite2D" parent="." index="1"]
-self_modulate = Color(1, 0, 0, 1)
+[node name="Cabeça" type="CollisionShape2D" parent="." index="0"]
+z_index = 1
+position = Vector2(2, -12)
+shape = SubResource("CircleShape2D_arbgw")
 
-[node name="Charging Bar" type="Sprite2D" parent="Sprite2D" index="1"]
-position = Vector2(0, -120)
-scale = Vector2(0.2, 11.765)
-texture = SubResource("GradientTexture1D_ciq6r")
-region_rect = Rect2(26.29, 58.545, 277.54, 46.11)
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-1, 12)
+shape = SubResource("CircleShape2D_ecost")
 
-[node name="Charge" type="Node" parent="StateMachine" index="2" node_paths=PackedStringArray("warning")]
+[node name="AnimatedSprite2D" parent="." index="2"]
+position = Vector2(0.882629, -0.117371)
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_v6nch")
+animation = &"Punch"
+
+[node name="Direction" parent="AnimatedSprite2D" index="0"]
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D" index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_hv4qy")
+}
+
+[node name="Follow" parent="StateMachine" index="1"]
+nextState = "Punch"
+
+[node name="Punch" type="Node" parent="StateMachine" index="2"]
 script = ExtResource("6_rfijp")
-warning = NodePath("../../Sprite2D/Charging Bar")
-metadata/_custom_type_script = "uid://7kcl7gogxvri"
 
-[node name="Attack" type="Node" parent="StateMachine" index="3" node_paths=PackedStringArray("hitbox", "warning")]
-script = ExtResource("5_hv4qy")
-hitbox = NodePath("../../Melee")
-warning = NodePath("../../Sprite2D/Charging Bar")
-metadata/_custom_type_script = "uid://b6g1cgvovoj2k"
+[node name="GroundCheck" parent="." index="4"]
+position = Vector2(14, 30)
 
-[node name="Melee" type="Area2D" parent="." index="5"]
+[node name="WallCheck" parent="." index="5"]
+position = Vector2(0, 37)
+
+[node name="Melee" type="Area2D" parent="." index="6"]
 position = Vector2(17, 0)
 collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Melee" index="0"]
-position = Vector2(1.90735e-06, -20)
+position = Vector2(-2.68661, -30.6669)
 shape = SubResource("CapsuleShape2D_hv4qy")
+disabled = true

@@ -21,6 +21,7 @@ func _ready() -> void:
 		enemies_spawn_positions.append(enemies[i].global_position)
 		enemies_types.append(enemies[i].get_meta("Index"))
 
+
 func directional_flip(direction):
 	if direction < 0:
 		transform.x.x = -1;
@@ -72,6 +73,9 @@ func _physics_process(delta: float) -> void:
 
 func die() -> void:
 	position = spawn_location
+	$SomGeral.stream = audios[2]
+	$SomGeral.pitch_scale = randf_range(0.8, 1.0)
+	$SomGeral.play()
 	for i in enemies.size():
 		if enemies[i]:
 			enemies[i].queue_free()

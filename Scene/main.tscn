@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://cw2d5j0gvjkdn"]
+[gd_scene load_steps=11 format=4 uid="uid://cw2d5j0gvjkdn"]
 
 [ext_resource type="PackedScene" uid="uid://bfkragnts5kr1" path="res://Objects/player.tscn" id="1_f6udf"]
 [ext_resource type="Texture2D" uid="uid://dw77y3q3jomro" path="res://Imgs/Sprite/blocosazuis.png" id="2_75buv"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://b1ufvcf27u5vw" path="res://Scripts/camera_room_follow.gd" id="3_r34rm"]
 [ext_resource type="PackedScene" uid="uid://db6dxnhdqk8on" path="res://Objects/coraggio.tscn" id="4_2wwxx"]
 [ext_resource type="PackedScene" uid="uid://c4l7veyy45yxb" path="res://Objects/respawn_anchor.tscn" id="5_3amdw"]
+[ext_resource type="PackedScene" uid="uid://cpuhmaponjg54" path="res://Objects/destructible_box.tscn" id="8_75buv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3pt4j"]
 texture = ExtResource("2_75buv")
@@ -118,7 +119,7 @@ sources/0 = SubResource("TileSetAtlasSource_3pt4j")
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_f6udf")]
-position = Vector2(367, 552)
+position = Vector2(561, 548)
 audios = Array[AudioStreamWAV]([ExtResource("2_ow1sv"), ExtResource("3_75buv")])
 
 [node name="TileMapCerto" type="TileMapLayer" parent="."]
@@ -135,11 +136,36 @@ script = ExtResource("3_r34rm")
 [node name="Coraggio" parent="." instance=ExtResource("4_2wwxx")]
 position = Vector2(1526, 537)
 
-[node name="RespawnAnchor" parent="." instance=ExtResource("5_3amdw")]
-position = Vector2(368, 558)
+[node name="Boxes" type="Node" parent="."]
 
-[node name="RespawnAnchor2" parent="." instance=ExtResource("5_3amdw")]
+[node name="Box" parent="Boxes" instance=ExtResource("8_75buv")]
+position = Vector2(503, 449)
+
+[node name="Box2" parent="Boxes" instance=ExtResource("8_75buv")]
+position = Vector2(347, 564)
+
+[node name="Box3" parent="Boxes" instance=ExtResource("8_75buv")]
+position = Vector2(365, 530)
+
+[node name="Box4" parent="Boxes" instance=ExtResource("8_75buv")]
+position = Vector2(382, 564)
+
+[node name="Box5" parent="Boxes" instance=ExtResource("8_75buv")]
+position = Vector2(381, 479)
+
+[node name="Box6" parent="Boxes" instance=ExtResource("8_75buv")]
+position = Vector2(401, 526)
+
+[node name="Box7" parent="Boxes" instance=ExtResource("8_75buv")]
+position = Vector2(419, 564)
+
+[node name="Checkpoints" type="Node" parent="."]
+
+[node name="RespawnAnchor" parent="Checkpoints" instance=ExtResource("5_3amdw")]
+position = Vector2(562, 554)
+
+[node name="RespawnAnchor2" parent="Checkpoints" instance=ExtResource("5_3amdw")]
 position = Vector2(839, 562)
 
-[node name="RespawnAnchor3" parent="." instance=ExtResource("5_3amdw")]
+[node name="RespawnAnchor3" parent="Checkpoints" instance=ExtResource("5_3amdw")]
 position = Vector2(1309, 376)

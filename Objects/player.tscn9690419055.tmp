@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bfkragnts5kr1"]
+[gd_scene load_steps=11 format=3 uid="uid://bfkragnts5kr1"]
 
 [ext_resource type="Script" uid="uid://bwmosg0ovrwm1" path="res://Scripts/player.gd" id="1_3y5cq"]
 [ext_resource type="PackedScene" uid="uid://db6dxnhdqk8on" path="res://Objects/coraggio.tscn" id="2_2i4gt"]
@@ -7,10 +7,7 @@
 [ext_resource type="Script" uid="uid://c16dige6w8qii" path="res://Scripts/States/Player/Normal.gd" id="5_0ar0x"]
 [ext_resource type="Script" uid="uid://bhdvga63xkck8" path="res://Scripts/States/Player/Renato.gd" id="5_x20fu"]
 [ext_resource type="Script" uid="uid://0xrdw4nnyh22" path="res://Scripts/States/Player/Coraggio.gd" id="7_slvmq"]
-[ext_resource type="Texture2D" uid="uid://chmjwbhtmrh07" path="res://Imgs/Sprite/PLACEHOLDER_aura.png" id="8_ng3n2"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ng3n2"]
-size = Vector2(63, 63)
+[ext_resource type="Texture2D" uid="uid://chmjwbhtmrh07" path="res://Imgs/Sprite/aura.png" id="8_ng3n2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3y5cq"]
 radius = 7.0
@@ -24,19 +21,6 @@ height = 36.0
 collision_mask = 128
 script = ExtResource("1_3y5cq")
 enemies_preload = Array[PackedScene]([null, null, null, ExtResource("2_2i4gt"), null, null, null])
-
-[node name="AuraAttack" type="Area2D" parent="."]
-position = Vector2(0, 1)
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AuraAttack"]
-shape = SubResource("RectangleShape2D_ng3n2")
-disabled = true
-
-[node name="Aura" type="Sprite2D" parent="AuraAttack"]
-visible = false
-texture = ExtResource("8_ng3n2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_3y5cq")
@@ -68,16 +52,18 @@ initial_state = NodePath("-1")
 script = ExtResource("5_0ar0x")
 metadata/_custom_type_script = "uid://c16dige6w8qii"
 
-[node name="3" type="Node" parent="StateMachine" node_paths=PackedStringArray("aura_attack")]
+[node name="3" type="Node" parent="StateMachine"]
 script = ExtResource("7_slvmq")
-aura_attack = NodePath("../../AuraAttack")
 metadata/_custom_type_script = "uid://0xrdw4nnyh22"
 
 [node name="6" type="Node" parent="StateMachine"]
 script = ExtResource("5_x20fu")
 metadata/_custom_type_script = "uid://bhdvga63xkck8"
 
-[connection signal="body_entered" from="AuraAttack" to="StateMachine/3" method="_on_aura_attack_body_entered"]
+[node name="Aura" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+texture = ExtResource("8_ng3n2")
+
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_entered" from="Hitbox" to="StateMachine" method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

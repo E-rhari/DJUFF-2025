@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bfkragnts5kr1"]
+[gd_scene load_steps=34 format=3 uid="uid://bfkragnts5kr1"]
 
 [ext_resource type="Script" uid="uid://bwmosg0ovrwm1" path="res://Scripts/player.gd" id="1_3y5cq"]
 [ext_resource type="PackedScene" uid="uid://db6dxnhdqk8on" path="res://Objects/coraggio.tscn" id="2_2i4gt"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://gsvkfo6saby8" path="res://Audio/SoundEffects/Morte/Estalo.wav" id="4_3ye7n"]
 [ext_resource type="Script" uid="uid://c16dige6w8qii" path="res://Scripts/States/Player/Normal.gd" id="5_0ar0x"]
 [ext_resource type="Script" uid="uid://bhdvga63xkck8" path="res://Scripts/States/Player/Renato.gd" id="5_x20fu"]
+[ext_resource type="PackedScene" uid="uid://c534pjm1iwo8r" path="res://Objects/marcato.tscn" id="6_3ye7n"]
 [ext_resource type="Script" uid="uid://0xrdw4nnyh22" path="res://Scripts/States/Player/Coraggio.gd" id="7_slvmq"]
 [ext_resource type="Texture2D" uid="uid://chmjwbhtmrh07" path="res://Imgs/Sprite/PLACEHOLDER_aura.png" id="8_ng3n2"]
 [ext_resource type="AudioStream" uid="uid://3eb058vjf6as" path="res://Audio/Songs/estudos4_1.wav" id="12_sbav2"]
@@ -16,9 +17,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ng3n2"]
 size = Vector2(63, 63)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3y5cq"]
-radius = 7.0
-height = 32.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ye7n"]
+size = Vector2(14, 31.4203)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sbav2"]
 load_path = "res://.godot/imported/protagmj.png-f609d4ddc41315eb224659c48e4b97f3.ctex"
@@ -120,6 +120,33 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="Animation" id="Animation_3ye7n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"walk"]
+}
+
 [sub_resource type="Animation" id="Animation_sbav2"]
 resource_name = "idle"
 tracks/0/type = "value"
@@ -147,31 +174,31 @@ tracks/1/keys = {
 "values": [&"idle"]
 }
 
-[sub_resource type="Animation" id="Animation_3ye7n"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_1sbjj"]
+resource_name = "jump"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
+tracks/0/path = NodePath(".:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [&"jump"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:animation")
+tracks/1/path = NodePath(".:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"walk"]
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_xxqss"]
@@ -203,7 +230,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_6jlvs"]
 resource_name = "walk_renato"
-length = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -215,33 +241,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
-}
-
-[sub_resource type="Animation" id="Animation_1sbjj"]
-resource_name = "jump"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"jump"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0ht63"]
@@ -261,7 +260,8 @@ height = 36.0
 collision_mask = 128
 script = ExtResource("1_3y5cq")
 audios = Array[AudioStreamWAV]([ExtResource("2_hyl1l"), ExtResource("3_sbav2"), ExtResource("4_3ye7n")])
-enemies_preload = Array[PackedScene]([null, null, null, ExtResource("2_2i4gt"), null, null, null])
+enemies_preload = Array[PackedScene]([null, null, null, ExtResource("2_2i4gt"), null, ExtResource("6_3ye7n"), null])
+spawn_location = Vector2(562, 554)
 
 [node name="AuraAttack" type="Area2D" parent="."]
 position = Vector2(0, 1)
@@ -278,9 +278,9 @@ visible = false
 texture = ExtResource("8_ng3n2")
 
 [node name="CollisionPlayer" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
+position = Vector2(0, 2.5)
 scale = Vector2(1, 1.11393)
-shape = SubResource("CapsuleShape2D_3y5cq")
+shape = SubResource("RectangleShape2D_3ye7n")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(-1, 1)

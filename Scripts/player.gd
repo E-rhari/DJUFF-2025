@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var speed = 150
 @export var jump_speed = 400
+@export var audios: Array[AudioStreamWAV]
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -35,6 +36,11 @@ func horizontal_movement():
 	if input_direction:
 		velocity.x = input_direction*speed
 		directional_flip(input_direction)
+		if $SomDeAndarTimer.time_left <= 0 and is_on_floor():
+			$SomGeral.stream = audios[0]
+			$SomGeral.pitch_scale = randf_range(0.8,1.2)
+			$SomGeral.play()
+			$SomDeAndarTimer.start(0.5)
 	else:
 		velocity.x = input_direction*0
 
@@ -55,7 +61,9 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("up") and is_on_floor():
 		jump()
-		$SomDoPulo.play()
+		$SomGeral.stream = audios[1] 
+		$SomGeral.pitch_scale = randf_range(0.8, 1.2)
+		$SomGeral.play()
 	if Input.is_action_just_released("up"):
 		cut_jump()
 	

@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://cw2d5j0gvjkdn"]
+[gd_scene load_steps=10 format=4 uid="uid://cw2d5j0gvjkdn"]
 
 [ext_resource type="PackedScene" uid="uid://bfkragnts5kr1" path="res://Objects/player.tscn" id="1_f6udf"]
 [ext_resource type="Texture2D" uid="uid://dw77y3q3jomro" path="res://Imgs/Sprite/blocosazuis.png" id="2_75buv"]
+[ext_resource type="AudioStream" uid="uid://bgoigimyalrxy" path="res://Audio/SoundEffects/PASSOS/PassosToalha/PassosToalha.wav" id="2_ow1sv"]
+[ext_resource type="AudioStream" uid="uid://cvkvhjoscq2nl" path="res://Audio/SoundEffects/PULOS/PULOSToalha/PuloPadrão.wav" id="3_75buv"]
 [ext_resource type="Script" uid="uid://b1ufvcf27u5vw" path="res://Scripts/camera_room_follow.gd" id="3_r34rm"]
 [ext_resource type="PackedScene" uid="uid://db6dxnhdqk8on" path="res://Objects/coraggio.tscn" id="4_2wwxx"]
 [ext_resource type="PackedScene" uid="uid://c4l7veyy45yxb" path="res://Objects/respawn_anchor.tscn" id="5_3amdw"]
@@ -117,6 +119,12 @@ sources/0 = SubResource("TileSetAtlasSource_3pt4j")
 
 [node name="Player" parent="." instance=ExtResource("1_f6udf")]
 position = Vector2(367, 552)
+audios = Array[AudioStreamWAV]([ExtResource("2_ow1sv"), ExtResource("3_75buv")])
+
+[node name="SomGeral" type="AudioStreamPlayer" parent="Player"]
+
+[node name="SomDeAndarTimer" type="Timer" parent="Player"]
+one_shot = true
 
 [node name="TileMapCerto" type="TileMapLayer" parent="."]
 position = Vector2(0, -2)

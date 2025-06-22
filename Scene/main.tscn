@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=4 uid="uid://cw2d5j0gvjkdn"]
+[gd_scene load_steps=11 format=4 uid="uid://cw2d5j0gvjkdn"]
 
 [ext_resource type="PackedScene" uid="uid://bfkragnts5kr1" path="res://Objects/player.tscn" id="1_f6udf"]
-[ext_resource type="Texture2D" uid="uid://ignvrc7o8coc" path="res://Imgs/Sprite/blocosazuis.png" id="2_75buv"]
+[ext_resource type="Texture2D" uid="uid://crpshqrffdd4q" path="res://Imgs/Sprite/blocosazuis.png" id="2_75buv"]
 [ext_resource type="Script" uid="uid://b1ufvcf27u5vw" path="res://Scripts/camera_room_follow.gd" id="3_r34rm"]
 [ext_resource type="PackedScene" uid="uid://db6dxnhdqk8on" path="res://Objects/coraggio.tscn" id="4_2wwxx"]
 [ext_resource type="PackedScene" uid="uid://c4l7veyy45yxb" path="res://Objects/respawn_anchor.tscn" id="5_3amdw"]
 [ext_resource type="PackedScene" uid="uid://4lw2aybm31ba" path="res://Objects/pause.tscn" id="7_ow1sv"]
 [ext_resource type="PackedScene" uid="uid://cpuhmaponjg54" path="res://Objects/destructible_box.tscn" id="8_75buv"]
+[ext_resource type="AudioStream" uid="uid://3eb058vjf6as" path="res://Audio/Songs/estudos4_1.wav" id="8_c2iwn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3pt4j"]
 texture = ExtResource("2_75buv")
@@ -268,3 +269,7 @@ position = Vector2(502, 627)
 
 [node name="RespawnAnchor" parent="ReferenciaInimigos" instance=ExtResource("5_3amdw")]
 position = Vector2(2840, 1042)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_c2iwn")
+autoplay = true

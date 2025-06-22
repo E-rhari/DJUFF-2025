@@ -109,7 +109,7 @@ physics_layer_0/collision_layer = 128
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_3pt4j")
 
-[node name="Node2D" type="Node2D"]
+[node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_f6udf")]
 position = Vector2(561, 548)
@@ -125,9 +125,6 @@ position = Vector2(304, 328)
 anchor_mode = 0
 zoom = Vector2(2.285, 2.315)
 script = ExtResource("3_r34rm")
-
-[node name="Coraggio" parent="." instance=ExtResource("4_2wwxx")]
-position = Vector2(1526, 537)
 
 [node name="Boxes" type="Node" parent="."]
 
@@ -163,29 +160,34 @@ position = Vector2(839, 562)
 [node name="RespawnAnchor3" parent="Checkpoints" instance=ExtResource("5_3amdw")]
 position = Vector2(1309, 376)
 
-[node name="Coraggio2" parent="." instance=ExtResource("4_2wwxx")]
-position = Vector2(348, 670)
-
-[node name="Coraggio3" parent="." instance=ExtResource("4_2wwxx")]
-position = Vector2(2365, 540)
-
-[node name="RespawnAnchor" parent="." instance=ExtResource("5_3amdw")]
+[node name="RespawnAnchor4" parent="Checkpoints" instance=ExtResource("5_3amdw")]
 position = Vector2(1840, 561)
 
-[node name="RespawnAnchor2" parent="." instance=ExtResource("5_3amdw")]
+[node name="RespawnAnchor5" parent="Checkpoints" instance=ExtResource("5_3amdw")]
 position = Vector2(1861, 151)
 
-[node name="RespawnAnchor3" parent="." instance=ExtResource("5_3amdw")]
+[node name="RespawnAnchor6" parent="Checkpoints" instance=ExtResource("5_3amdw")]
 position = Vector2(2355, 380)
 
-[node name="RespawnAnchor4" parent="." instance=ExtResource("5_3amdw")]
+[node name="RespawnAnchor7" parent="Checkpoints" instance=ExtResource("5_3amdw")]
 position = Vector2(2761, 649)
 
-[node name="RespawnAnchor5" parent="." instance=ExtResource("5_3amdw")]
+[node name="RespawnAnchor8" parent="Checkpoints" instance=ExtResource("5_3amdw")]
 position = Vector2(2308, 644)
 
-[node name="RespawnAnchor6" parent="." instance=ExtResource("5_3amdw")]
+[node name="RespawnAnchor9" parent="Checkpoints" instance=ExtResource("5_3amdw")]
 position = Vector2(1566, 739)
 
-[node name="RespawnAnchor7" parent="." instance=ExtResource("5_3amdw")]
+[node name="RespawnAnchor10" parent="Checkpoints" instance=ExtResource("5_3amdw")]
 position = Vector2(685, 667)
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Coraggio" parent="Enemies" instance=ExtResource("4_2wwxx")]
+position = Vector2(1526, 537)
+
+[node name="Coraggio2" parent="Enemies" instance=ExtResource("4_2wwxx")]
+position = Vector2(348, 670)
+
+[node name="Coraggio3" parent="Enemies" instance=ExtResource("4_2wwxx")]
+position = Vector2(2365, 540)

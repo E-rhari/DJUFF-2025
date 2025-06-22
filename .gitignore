@@ -18,3 +18,4 @@ mono_crash.*.json
 
 teste.tscn
 .vscode/settings.json
+*.tmp

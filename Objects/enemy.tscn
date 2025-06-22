@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://xu5to5c11if0"]
+[gd_scene load_steps=8 format=3 uid="uid://xu5to5c11if0"]
 
 [ext_resource type="Script" uid="uid://ddvqrxol7y7kr" path="res://Scripts/enemy.gd" id="1_4jekx"]
 [ext_resource type="Script" uid="uid://b7uq3qunvhsbf" path="res://Scripts/States/state_machine.gd" id="2_4jekx"]
-[ext_resource type="Script" uid="uid://cmg1fumag5x7j" path="res://Scripts/States/Enemy/EnemyIdle.gd" id="3_s685e"]
+[ext_resource type="Script" uid="uid://cmg1fumag5x7j" path="res://Scripts/States/Enemy/EnemyPatrol.gd" id="3_s685e"]
 [ext_resource type="Script" uid="uid://u05die0eu548" path="res://Scripts/States/Enemy/EnemyFollow.gd" id="4_n6qjc"]
+[ext_resource type="Script" uid="uid://bwqlfvpve010r" path="res://Scripts/States/Enemy/EnemyIdle.gd" id="5_756aq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yfe2k"]
 size = Vector2(46, 50)
@@ -35,7 +36,7 @@ texture = SubResource("NoiseTexture2D_cqgh6")
 script = ExtResource("2_4jekx")
 initial_state = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy", "ground_check", "wall_check")]
+[node name="Patrol" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy", "ground_check", "wall_check")]
 script = ExtResource("3_s685e")
 enemy = NodePath("../..")
 ground_check = NodePath("../../GroundCheck")
@@ -46,6 +47,10 @@ metadata/_custom_type_script = "uid://cmg1fumag5x7j"
 script = ExtResource("4_n6qjc")
 enemy = NodePath("../..")
 metadata/_custom_type_script = "uid://u05die0eu548"
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("5_756aq")
+metadata/_custom_type_script = "uid://bwqlfvpve010r"
 
 [node name="GroundCheck" type="RayCast2D" parent="."]
 position = Vector2(16, 19)

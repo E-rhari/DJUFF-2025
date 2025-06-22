@@ -18,7 +18,7 @@ func physics_update(_delta: float):
 	elif direction.normalized().x < 0 and enemy.is_moving_right > 0:
 		enemy.turn()
 	if (direction.length() > enemy.range):
-		Transitioned.emit(self, "idle")
+		Transitioned.emit(self, "patrol")
 	elif (direction.length() > 60):
 		enemy.velocity.x = direction.normalized().x * enemy.speed
 	else:
@@ -26,4 +26,4 @@ func physics_update(_delta: float):
 		Transitioned.emit(self, nextState)
 
 func _on_ground_check_body_exited(body: Node2D) -> void:
-	Transitioned.emit(self, "idle")
+	Transitioned.emit(self, "patrol")

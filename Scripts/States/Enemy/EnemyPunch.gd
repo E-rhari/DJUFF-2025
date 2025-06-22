@@ -9,4 +9,4 @@ func enter():
 	print("Peitos!!!!")
 
 func anim_ended():
-	Transitioned.emit(self, "idle")
+	Transitioned.emit(self, "patrol")

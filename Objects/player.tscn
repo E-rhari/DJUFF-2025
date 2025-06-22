@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://bfkragnts5kr1"]
 
-[ext_resource type="Script" uid="uid://bwmosg0ovrwm1" path="res://Scripts/player.gd" id="1_3y5cq"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_3y5cq"]
 [ext_resource type="PackedScene" uid="uid://db6dxnhdqk8on" path="res://Objects/coraggio.tscn" id="2_2i4gt"]
 [ext_resource type="Texture2D" uid="uid://cxf7j6bor7pud" path="res://Imgs/Sprite/protagmj.png" id="2_3y5cq"]
 [ext_resource type="AudioStream" uid="uid://bgoigimyalrxy" path="res://Audio/SoundEffects/PASSOS/PassosToalha/PassosToalha.wav" id="2_hyl1l"]

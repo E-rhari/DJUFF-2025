@@ -202,6 +202,9 @@ position = Vector2(1024, 814)
 [node name="Coraggio5" parent="Enemies" instance=ExtResource("4_2wwxx")]
 position = Vector2(1580, 773)
 
+[node name="Coraggio6" parent="Enemies" instance=ExtResource("4_2wwxx")]
+position = Vector2(1880, 252)
+
 [node name="ReferenciaBlocosDestruíveis" type="Node" parent="."]
 
 [node name="Box7" parent="ReferenciaBlocosDestruíveis" instance=ExtResource("8_75buv")]

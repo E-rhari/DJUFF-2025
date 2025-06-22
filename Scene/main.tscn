@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://b1ufvcf27u5vw" path="res://Scripts/camera_room_follow.gd" id="3_r34rm"]
 [ext_resource type="PackedScene" uid="uid://db6dxnhdqk8on" path="res://Objects/coraggio.tscn" id="4_2wwxx"]
 [ext_resource type="PackedScene" uid="uid://c4l7veyy45yxb" path="res://Objects/respawn_anchor.tscn" id="5_3amdw"]
-[ext_resource type="PackedScene" path="res://Objects/pause.tscn" id="7_ow1sv"]
+[ext_resource type="PackedScene" uid="uid://4lw2aybm31ba" path="res://Objects/pause.tscn" id="7_ow1sv"]
 [ext_resource type="PackedScene" uid="uid://cpuhmaponjg54" path="res://Objects/destructible_box.tscn" id="8_75buv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3pt4j"]

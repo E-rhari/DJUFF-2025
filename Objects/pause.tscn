@@ -9,6 +9,10 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(\"pause\"):
 		get_tree().paused = !get_tree().paused
 		visible = !visible
+	if event.is_action_pressed(\"attack\") and visible:
+		get_tree().get_first_node_in_group(\"Player\").die()
+		get_tree().paused = !get_tree().paused
+		visible = !visible
 "
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_frnhm"]
@@ -60,11 +64,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -129.5
-offset_top = 56.0
-offset_right = 129.5
-offset_bottom = 111.0
+offset_left = -296.0
+offset_top = 59.0
+offset_right = 296.0
+offset_bottom = 172.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 40
-text = "Aperte 'esc' para despausar."
+text = "Aperte 'esc' para despausar
+ou 'x' para se matar"
+horizontal_alignment = 1

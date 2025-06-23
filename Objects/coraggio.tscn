@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://db6dxnhdqk8on"]
+[gd_scene load_steps=20 format=3 uid="uid://db6dxnhdqk8on"]
 
 [ext_resource type="PackedScene" uid="uid://xu5to5c11if0" path="res://Objects/enemy.tscn" id="1_6d2ds"]
 [ext_resource type="Texture2D" uid="uid://cipxk2nqcfm10" path="res://Imgs/Sprite/coraggio - Copia.png" id="2_ciq6r"]
 [ext_resource type="AudioStream" uid="uid://d3bhmevwy1kae" path="res://Audio/SoundEffects/Enemy/CoraggioPunchê/puncho.wav" id="4_ciq6r"]
+[ext_resource type="Script" uid="uid://u05die0eu548" path="res://Scripts/States/Enemy/EnemyFollow.gd" id="4_hv4qy"]
 [ext_resource type="Script" uid="uid://7kcl7gogxvri" path="res://Scripts/States/Enemy/EnemyPunch.gd" id="6_rfijp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_arbgw"]
@@ -231,19 +232,19 @@ scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_v6nch")
 animation = &"Punch"
 
-[node name="Direction" parent="AnimatedSprite2D" index="0"]
-visible = false
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D" index="1"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D" index="0"]
 libraries = {
 &"": SubResource("AnimationLibrary_hv4qy")
 }
 
-[node name="Follow" parent="StateMachine" index="1"]
-nextState = "Punch"
-
 [node name="Punch" type="Node" parent="StateMachine" index="2"]
 script = ExtResource("6_rfijp")
+
+[node name="Follow" type="Node" parent="StateMachine" index="3" node_paths=PackedStringArray("enemy")]
+script = ExtResource("4_hv4qy")
+enemy = NodePath("../..")
+nextState = "punch"
+metadata/_custom_type_script = "uid://u05die0eu548"
 
 [node name="GroundCheck" parent="." index="4"]
 position = Vector2(14, 30)

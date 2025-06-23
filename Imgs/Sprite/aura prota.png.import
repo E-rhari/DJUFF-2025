@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ds8vsy2luakya"
-path="res://.godot/imported/protagmj - Copia.png-a55f9acd5c1fa0b86d1ba023830cc69f.ctex"
+uid="uid://11y14eyh8bhv"
+path="res://.godot/imported/aura prota.png-9132cb4aeb7523d2931b46de2cfb3059.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imgs/Sprite/protagmj - Copia.png"
-dest_files=["res://.godot/imported/protagmj - Copia.png-a55f9acd5c1fa0b86d1ba023830cc69f.ctex"]
+source_file="res://Imgs/Sprite/aura prota.png"
+dest_files=["res://.godot/imported/aura prota.png-9132cb4aeb7523d2931b46de2cfb3059.ctex"]
 
 [params]
 

@@ -1,11 +1,12 @@
 extends State
-class_name EnemyPunch
+class_name EnemyFire
 
 @onready var animation_player: AnimationPlayer = $"../../AnimatedSprite2D/AnimationPlayer"
 var timer
 
 func enter():
-	animation_player.play("punch")
+	owner.velocity.x = 0
+	animation_player.play("attack")
 
 func anim_ended():
 	Transitioned.emit(self, "patrol")

@@ -1,15 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://xu5to5c11if0"]
+[gd_scene load_steps=6 format=3 uid="uid://xu5to5c11if0"]
 
 [ext_resource type="Script" uid="uid://ddvqrxol7y7kr" path="res://Scripts/enemy.gd" id="1_4jekx"]
 [ext_resource type="Script" uid="uid://b7uq3qunvhsbf" path="res://Scripts/States/state_machine.gd" id="2_4jekx"]
 [ext_resource type="Script" uid="uid://cmg1fumag5x7j" path="res://Scripts/States/Enemy/EnemyPatrol.gd" id="3_s685e"]
-[ext_resource type="Script" uid="uid://u05die0eu548" path="res://Scripts/States/Enemy/EnemyFollow.gd" id="4_n6qjc"]
 [ext_resource type="Script" uid="uid://bwqlfvpve010r" path="res://Scripts/States/Enemy/EnemyIdle.gd" id="5_756aq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yfe2k"]
-size = Vector2(46, 50)
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cqgh6"]
+size = Vector2(28, 49)
 
 [node name="Enemy" type="CharacterBody2D" groups=["Enemies"]]
 collision_layer = 2
@@ -17,6 +14,7 @@ collision_mask = 129
 script = ExtResource("1_4jekx")
 speed = 100
 range = 100
+metadata/Index = -1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
@@ -25,12 +23,7 @@ shape = SubResource("RectangleShape2D_yfe2k")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-0.117371, -0.117371)
 scale = Vector2(0.159551, 0.236576)
-
-[node name="Direction" type="Sprite2D" parent="AnimatedSprite2D"]
-position = Vector2(82.2143, 0.496124)
-rotation = 3.14159
-scale = Vector2(0.178581, 0.017056)
-texture = SubResource("NoiseTexture2D_cqgh6")
+metadata/Index = -1
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_4jekx")
@@ -42,11 +35,6 @@ enemy = NodePath("../..")
 ground_check = NodePath("../../GroundCheck")
 wall_check = NodePath("../../WallCheck")
 metadata/_custom_type_script = "uid://cmg1fumag5x7j"
-
-[node name="Follow" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
-script = ExtResource("4_n6qjc")
-enemy = NodePath("../..")
-metadata/_custom_type_script = "uid://u05die0eu548"
 
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("5_756aq")

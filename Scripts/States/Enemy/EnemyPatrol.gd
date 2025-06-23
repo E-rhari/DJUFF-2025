@@ -33,6 +33,7 @@ func physics_update(delta: float):
 	var direction = player.global_position - enemy.global_position
 	if (direction.length() < enemy.range):
 		Transitioned.emit(self, "follow")
+		Transitioned.emit(self, "fire")
 	
 	if (!ground_check.is_colliding() and enemy.is_on_floor()):
 		enemy.turn()

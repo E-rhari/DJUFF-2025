@@ -20,3 +20,4 @@ func update(delta):
 	var direction = player.global_position - owner.global_position
 	if (direction.length() < owner.range):
 		Transitioned.emit(self, "follow")
+		Transitioned.emit(self, "fire")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bfkragnts5kr1"]
+[gd_scene load_steps=35 format=3 uid="uid://bfkragnts5kr1"]
 
 [ext_resource type="Script" uid="uid://bwmosg0ovrwm1" path="res://Scripts/player.gd" id="1_3y5cq"]
 [ext_resource type="PackedScene" uid="uid://db6dxnhdqk8on" path="res://Objects/coraggio.tscn" id="2_2i4gt"]
@@ -11,11 +11,12 @@
 [ext_resource type="Script" uid="uid://bhdvga63xkck8" path="res://Scripts/States/Player/Renato.gd" id="5_x20fu"]
 [ext_resource type="PackedScene" uid="uid://c534pjm1iwo8r" path="res://Objects/marcato.tscn" id="6_3ye7n"]
 [ext_resource type="Script" uid="uid://0xrdw4nnyh22" path="res://Scripts/States/Player/Coraggio.gd" id="7_slvmq"]
-[ext_resource type="Texture2D" uid="uid://chmjwbhtmrh07" path="res://Imgs/Sprite/PLACEHOLDER_aura.png" id="8_ng3n2"]
+[ext_resource type="Texture2D" uid="uid://cjrle3dy85bvq" path="res://Imgs/Sprite/aura prota - Copia.png" id="7_xxqss"]
 [ext_resource type="AudioStream" uid="uid://3eb058vjf6as" path="res://Audio/Songs/estudos4_1.wav" id="12_sbav2"]
+[ext_resource type="Script" uid="uid://bjmjj152vyknu" path="res://Scripts/States/Player/Marcato.gd" id="13_xxqss"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ng3n2"]
-size = Vector2(63, 63)
+size = Vector2(45, 53)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ye7n"]
 size = Vector2(14, 31.4203)
@@ -269,13 +270,14 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionAura" type="CollisionShape2D" parent="AuraAttack"]
-position = Vector2(0, 2)
+position = Vector2(-0.5, -7.5)
 shape = SubResource("RectangleShape2D_ng3n2")
 disabled = true
 
 [node name="Aura" type="Sprite2D" parent="AuraAttack"]
 visible = false
-texture = ExtResource("8_ng3n2")
+position = Vector2(0, -8)
+texture = ExtResource("7_xxqss")
 
 [node name="CollisionPlayer" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2.5)
@@ -319,6 +321,10 @@ metadata/_custom_type_script = "uid://c16dige6w8qii"
 script = ExtResource("7_slvmq")
 aura_attack = NodePath("../../AuraAttack")
 metadata/_custom_type_script = "uid://0xrdw4nnyh22"
+
+[node name="5" type="Node" parent="StateMachine"]
+script = ExtResource("13_xxqss")
+metadata/_custom_type_script = "uid://bjmjj152vyknu"
 
 [node name="6" type="Node" parent="StateMachine"]
 script = ExtResource("5_x20fu")

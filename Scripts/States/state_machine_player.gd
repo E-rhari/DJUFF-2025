@@ -1,6 +1,9 @@
 extends Node
 
 @export var initial_state : State
+@export var death_UI : Control
+enum {GLUTTO, GANACCIO, PRECIOSO, CORAGGIO, SONECA, MARCATO, RENATO}
+var dict = {"Glutto": GLUTTO, "Ganaccio": GANACCIO, "Precioso": PRECIOSO, "Agora Coraggio faz parte de você.\nTente apertar X.": CORAGGIO, "Soneca": SONECA, "Agora Marcato faz parte de você.\nTente sair do chão.": MARCATO, "Renato": RENATO}
 
 var current_state : State
 var states : Dictionary = {}
@@ -24,6 +27,7 @@ func _physics_process(delta: float) -> void:
 		current_state.physics_update(delta)
 
 func on_child_transition(state, new_state_name):
+	death_UI.visible = true
 	if state != current_state:
 		return
 	

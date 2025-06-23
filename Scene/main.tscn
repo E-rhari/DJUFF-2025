@@ -1,13 +1,15 @@
-[gd_scene load_steps=11 format=4 uid="uid://cw2d5j0gvjkdn"]
+[gd_scene load_steps=13 format=4 uid="uid://cw2d5j0gvjkdn"]
 
 [ext_resource type="PackedScene" uid="uid://bfkragnts5kr1" path="res://Objects/player.tscn" id="1_f6udf"]
 [ext_resource type="Texture2D" uid="uid://crpshqrffdd4q" path="res://Imgs/Sprite/blocosazuis.png" id="2_75buv"]
 [ext_resource type="Script" uid="uid://b1ufvcf27u5vw" path="res://Scripts/camera_room_follow.gd" id="3_r34rm"]
 [ext_resource type="PackedScene" uid="uid://db6dxnhdqk8on" path="res://Objects/coraggio.tscn" id="4_2wwxx"]
 [ext_resource type="PackedScene" uid="uid://c4l7veyy45yxb" path="res://Objects/respawn_anchor.tscn" id="5_3amdw"]
+[ext_resource type="PackedScene" uid="uid://dqlnmj0hfgqpv" path="res://Objects/death.tscn" id="5_3pt4j"]
 [ext_resource type="PackedScene" uid="uid://4lw2aybm31ba" path="res://Objects/pause.tscn" id="7_ow1sv"]
 [ext_resource type="PackedScene" uid="uid://cpuhmaponjg54" path="res://Objects/destructible_box.tscn" id="8_75buv"]
 [ext_resource type="AudioStream" uid="uid://3eb058vjf6as" path="res://Audio/Songs/estudos4_1.wav" id="8_c2iwn"]
+[ext_resource type="PackedScene" uid="uid://c534pjm1iwo8r" path="res://Objects/marcato.tscn" id="9_c2iwn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3pt4j"]
 texture = ExtResource("2_75buv")
@@ -109,7 +111,10 @@ sources/0 = SubResource("TileSetAtlasSource_3pt4j")
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_f6udf")]
-position = Vector2(561, 548)
+position = Vector2(1974, 552)
+
+[node name="StateMachine" parent="Player" index="6" node_paths=PackedStringArray("death_UI")]
+death_UI = NodePath("../../Camera2D/Death")
 
 [node name="TileMapLevel" type="TileMapLayer" parent="."]
 position = Vector2(0, -2)
@@ -135,28 +140,34 @@ offset_right = 257.0
 offset_bottom = 99.0
 scale = Vector2(0.75, 0.75)
 
+[node name="Death" parent="Camera2D" instance=ExtResource("5_3pt4j")]
+offset_left = 257.0
+offset_top = 99.0
+offset_right = 257.0
+offset_bottom = 99.0
+
 [node name="Boxes" type="Node" parent="."]
 
 [node name="Box" parent="Boxes" instance=ExtResource("8_75buv")]
-position = Vector2(503, 449)
+position = Vector2(530, 461)
 
 [node name="Box2" parent="Boxes" instance=ExtResource("8_75buv")]
-position = Vector2(347, 564)
+position = Vector2(346, 566)
 
 [node name="Box3" parent="Boxes" instance=ExtResource("8_75buv")]
-position = Vector2(365, 530)
+position = Vector2(365, 534)
 
 [node name="Box4" parent="Boxes" instance=ExtResource("8_75buv")]
-position = Vector2(382, 564)
+position = Vector2(378, 566)
 
 [node name="Box5" parent="Boxes" instance=ExtResource("8_75buv")]
-position = Vector2(381, 479)
+position = Vector2(385, 502)
 
 [node name="Box6" parent="Boxes" instance=ExtResource("8_75buv")]
-position = Vector2(401, 526)
+position = Vector2(401, 534)
 
 [node name="Box7" parent="Boxes" instance=ExtResource("8_75buv")]
-position = Vector2(419, 564)
+position = Vector2(410, 566)
 
 [node name="Checkpoints" type="Node" parent="."]
 
@@ -210,10 +221,13 @@ position = Vector2(1580, 773)
 [node name="Coraggio6" parent="Enemies" instance=ExtResource("4_2wwxx")]
 position = Vector2(1880, 252)
 
+[node name="Marcato" parent="Enemies" instance=ExtResource("9_c2iwn")]
+position = Vector2(2098, 554)
+
 [node name="ReferenciaBlocosDestruíveis" type="Node" parent="."]
 
 [node name="Box7" parent="ReferenciaBlocosDestruíveis" instance=ExtResource("8_75buv")]
-position = Vector2(1804, 561)
+position = Vector2(1812, 566)
 
 [node name="Box6" parent="ReferenciaBlocosDestruíveis" instance=ExtResource("8_75buv")]
 position = Vector2(2241, 98)
@@ -242,7 +256,7 @@ position = Vector2(1459, 673)
 position = Vector2(1567, 674)
 
 [node name="Marcato3" type="Node2D" parent="ReferenciaInimigos"]
-position = Vector2(1679, 673)
+position = Vector2(1689, 674)
 
 [node name="Marcato4" type="Node2D" parent="ReferenciaInimigos"]
 position = Vector2(2099, 551)
@@ -277,3 +291,5 @@ position = Vector2(2840, 1042)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_c2iwn")
 autoplay = true
+
+[editable path="Player"]

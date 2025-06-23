@@ -184,7 +184,7 @@ position = Vector2(1323, 376)
 position = Vector2(1840, 561)
 
 [node name="RespawnAnchor5" parent="Checkpoints" instance=ExtResource("5_3amdw")]
-position = Vector2(1984, 145)
+position = Vector2(1985, 157)
 
 [node name="RespawnAnchor6" parent="Checkpoints" instance=ExtResource("5_3amdw")]
 position = Vector2(2355, 380)

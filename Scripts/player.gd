@@ -48,7 +48,7 @@ func horizontal_movement():
 			$SomDeAndarTimer.start(0.5)
 
 		if is_on_floor():
-			if animation_player.is_playing() and animation_player.current_animation != "walk":
+			# if animation_player.is_playing() and animation_player.current_animation != "walk":
 				animation_player.play("walk")
 		
 	else:
